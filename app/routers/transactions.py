@@ -15,14 +15,7 @@ async def getBalance(email):
     transaction_totals = Transactions()
     transaction_totals.readFromCSV(csv_path = csv_path)
 
-    await send_email(email = email, data = transaction_totals)
-
-    return {
-        "total": transaction_totals,
-        "credit": transaction_totals.credit,
-        "debit": transaction_totals.debit,
-        "monthly_transactions": transaction_totals.monthly_transactions
-    }
+    return await send_email(email = email, data = transaction_totals)
 
 
 

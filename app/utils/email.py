@@ -2,6 +2,7 @@ from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 from pydantic import EmailStr, BaseModel
 from typing import List
 from pathlib import Path
+from starlette.responses import JSONResponse
 from ..core.config import get_settings
 
 class EmailSchema(BaseModel):
@@ -37,4 +38,4 @@ async def send_email(email: EmailStr, data):
 
     fm = FastMail(conf)
     await fm.send_message(message, template_name="email.html")
-    return 1
+    return JSONResponse(status_code=200, content={"message": "email has been sent"})

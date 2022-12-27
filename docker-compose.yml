@@ -2,7 +2,7 @@ version: '3'
 
 services:
   transactions-api:
-    build: ./app
+    build: .
     ports:
       - "5002:80"
     environment:
