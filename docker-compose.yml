@@ -1,9 +1,16 @@
 version: '3'
 
 services:
-  transactions-api:
+  api:
+    env_file:
+      - .env
     build: .
     ports:
       - "5002:80"
     environment:
-      - WATCHFILES_FORCE_POLLING=true
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MAIL_FROM: ${MAIL_FROM}
+      MAIL_PORT: ${MAIL_PORT}
+      MAIL_SERVER: ${MAIL_SERVER}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME}

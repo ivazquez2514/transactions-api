@@ -1,8 +1,8 @@
 FROM python:3.11.1
 
-COPY . /usr/src/nubank-test
+COPY . /usr/src/stori-test
 
-WORKDIR /usr/src/nubank-test
+WORKDIR /usr/src/stori-test
 
 RUN python3 -m pip install -r requirements.txt
 

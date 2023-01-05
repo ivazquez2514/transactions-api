@@ -18,14 +18,14 @@ conf = ConnectionConfig(
     MAIL_SERVER = settings.mail_server,
     MAIL_FROM_NAME= settings.mail_from_name,
     TEMPLATE_FOLDER = Path(__file__).parent.parent / 'templates',
-    MAIL_SSL = True,
-    MAIL_TLS = False
+    MAIL_STARTTLS = False,
+    MAIL_SSL_TLS = True
 )
 
 
 async def send_email(email: EmailStr, data):
     message = MessageSchema(
-        subject="Nubank balance",
+        subject="Stori balance",
         recipients=[email],
         template_body = {
             "email": email,
